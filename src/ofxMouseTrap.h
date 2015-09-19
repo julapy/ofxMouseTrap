@@ -29,6 +29,8 @@ public:
         mouseEventIndex = 0;
     }
     
+    friend ostream & operator << (ostream & os, const ofxMouseTrapEvent & mouseEvent);
+    
     int x;
     int y;
     int button;
@@ -38,6 +40,16 @@ public:
     int mousePathIndex;
     int mouseEventIndex;
 };
+
+inline ostream & operator << (ostream & os, const ofxMouseTrapEvent & mouseEvent) {
+    os
+    << "x = " << mouseEvent.x
+    << ", y = " << mouseEvent.y
+    << ", button = " << mouseEvent.button
+    << ", type = " << mouseEvent.type
+    << ", time = " << mouseEvent.time;
+    return os;
+}
 
 //--------------------------------------------------------------
 class ofxMouseTrapPath {
